@@ -1,0 +1,55 @@
+# Stability Analysis Summary
+
+- Generated at UTC: `2026-05-06T11:14:26.641327+00:00`
+- DB access: not used in this step.
+- Role naming, OpenAI API use, and RQ3 analysis were not performed.
+
+## Bootstrap Setup
+
+- Bootstrap runs: `30`
+- Actor sample fraction: `0.8`
+- PCA components: `12`
+- HDBSCAN min_cluster_size: `20`
+- HDBSCAN min_samples: `10`
+
+## Metric Summary
+
+| metric | mean | median | std | min | max |
+| --- | --- | --- | --- | --- | --- |
+| ari_include_noise | 0.8654181879433864 | 0.8627686082577526 | 0.032544194957194475 | 0.80707151144975 | 0.9174223418840792 |
+| nmi_include_noise | 0.8644971852274269 | 0.8623581368625 | 0.025332018720690273 | 0.80219289991017 | 0.9109606298709158 |
+| v_measure_include_noise | 0.8644971852274269 | 0.8623581368625 | 0.025332018720690252 | 0.8021928999101701 | 0.9109606298709158 |
+| ari_exclude_noise | 0.9958080346970523 | 0.9991944307079166 | 0.01072048849732654 | 0.9510714763951861 | 1.0 |
+| nmi_exclude_noise | 0.9915127529140977 | 0.9954436902909171 | 0.01770987732506364 | 0.919516294632551 | 1.0000000000000002 |
+| v_measure_exclude_noise | 0.9915127529140977 | 0.9954436902909172 | 0.01770987732506368 | 0.9195162946325508 | 1.0000000000000002 |
+| noise_ratio | 0.4364014902476441 | 0.4378698224852071 | 0.021964031239991178 | 0.3898750821827745 | 0.4806048652202498 |
+| n_clusters | 5.266666666666667 | 5.0 | 0.5208304597621878 | 4.0 | 6.0 |
+| largest_cluster_ratio | 0.30845934692088545 | 0.30834976988823143 | 0.017971439728272066 | 0.2656147271531887 | 0.33925049309664695 |
+
+## Cluster Stability By Original Label
+
+| original_cluster_label | bootstrap_runs | mean_n_sampled | mean_dominant_fraction | median_dominant_fraction | min_dominant_fraction | max_dominant_fraction | mean_bootstrap_noise_fraction | median_bootstrap_noise_fraction |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| -1.0 | 30.0 | 656.7333333333333 | 0.9464089790583183 | 0.9518680374634656 | 0.8859784283513097 | 0.9969183359013868 | 0.9464089790583183 | 0.9518680374634656 |
+| 0.0 | 30.0 | 21.333333333333332 | 0.968431488801054 | 1.0 | 0.8695652173913043 | 1.0 | 0.6649018445322793 | 1.0 |
+| 1.0 | 30.0 | 153.63333333333333 | 0.9886075949367089 | 1.0 | 0.6582278481012658 | 1.0 | 0.003586497890295359 | 0.0 |
+| 2.0 | 30.0 | 456.4 | 0.9811869678052434 | 0.9922931373262499 | 0.8913525498891353 | 1.0 | 0.018813032194756628 | 0.0077068626737500905 |
+| 3.0 | 30.0 | 45.86666666666667 | 0.6908793791723462 | 0.6702898550724637 | 0.4888888888888889 | 0.975609756097561 | 0.30695461938096175 | 0.31521739130434784 |
+| 4.0 | 30.0 | 111.26666666666667 | 0.9573762240372149 | 0.9578051559606894 | 0.897196261682243 | 0.991304347826087 | 0.04231224948303442 | 0.04219484403931064 |
+| 5.0 | 30.0 | 75.76666666666667 | 0.9889163436697787 | 0.987260629665693 | 0.9594594594594594 | 1.0 | 0.008876337900680719 | 0.0125 |
+
+## Noise Stability
+
+| metric | mean | median | std | min | max |
+| --- | --- | --- | --- | --- | --- |
+| original_noise_to_noise_rate | 0.9464089790583183 | 0.9518680374634656 | 0.028310060668121896 | 0.8859784283513097 | 0.9969183359013868 |
+| original_nonnoise_to_noise_rate | 0.048792142744131385 | 0.04435312606184166 | 0.020362602116887805 | 0.006944444444444444 | 0.09778812572759023 |
+| boot_noise_from_original_noise_rate | 0.9373210485450865 | 0.9436331675527354 | 0.023586640013395294 | 0.8850889192886456 | 0.990228013029316 |
+
+## Interpretation
+
+- Stable non-noise clusters by simple threshold: `[1, 2, 4, 5]`
+- Potentially unstable non-noise clusters by simple threshold: `[0]`
+- Noise-included metrics evaluate whether the model reproduces the same dense regions and noise assignment.
+- Noise-excluded metrics evaluate agreement only among actors assigned to non-noise clusters in both runs.
+- Recommendation: `maintain_current_hdbscan_and_proceed_to_stability_reporting`

@@ -1,0 +1,2 @@
+test,n,n_patterns,n_projects,chi_square,dof,p_value_asymptotic,p_value_monte_carlo,p_value_used,p_value_method,min_expected_count,cells_expected_lt5,cells_expected_lt1,cramers_v,cramers_v_bias_corrected,effect_size_note
+pattern_project_independence,8607,9,5,2478.6421796936447,32,0.0,,0.0,asymptotic_chi_square,14.250609968630185,0,0,0.2683187492398009,0.2666428569388285,Cramer's V near 0 indicates weak association; p-values can be significant with large n.

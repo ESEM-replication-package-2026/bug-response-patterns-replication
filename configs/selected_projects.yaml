@@ -1,0 +1,226 @@
+experiment_stage: pilot
+selection_date: '2026-05-06T06:14:11.830627+00:00'
+selection_policy:
+  purpose: Pilot project selection before event extraction.
+  pilot_target_count: 5
+  pilot_first_choice_projects:
+  - kafka
+  - nifi
+  - storm
+  - zeppelin
+  - zookeeper
+  candidate_pool: Top projects by usable_score from reports/data_audit/project_source_availability.csv.
+  criteria:
+  - closed bug issues are sufficient for lifecycle analysis
+  - issue comments and issue events are sufficient
+  - linked commits are available
+  - pull request and review data are available
+  - estimated actor count is not extremely small
+  - pilot set avoids using only the largest issue-heavy projects
+  minimum_reference_thresholds:
+    n_closed_bug_issues: 100
+    n_issue_comments: 1000
+    n_issue_events: 1000
+    n_linked_commits: 100
+    n_commits: 500
+    n_pull_requests: 100
+    n_reviews: 100
+    n_actors_estimated: 100
+mongodb_database: smartshark_2_2
+selected_projects:
+- project_name: kafka
+  project_id: <mongodb_object_id_redacted>
+  selection_reason: 'Pilot target: strong bug-fixing lifecycle coverage with 3053
+    closed bug issues, 36302 issue comments, 55164 issue events, 4650 linked commits,
+    9833 pull requests, 48845 reviews, and 4312 observed actors.'
+  n_issues: 7007
+  n_closed_bug_issues: 3053
+  n_issue_comments: 36302
+  n_issue_events: 55164
+  n_linked_commits: 4650
+  n_commits: 6971
+  n_pull_requests: 9833
+  n_reviews: 48845
+  n_actors_estimated: 4312
+  usable_score: 94.367
+- project_name: nifi
+  project_id: <mongodb_object_id_redacted>
+  selection_reason: 'Pilot target: strong bug-fixing lifecycle coverage with 2073
+    closed bug issues, 40711 issue comments, 49363 issue events, 4892 linked commits,
+    4727 pull requests, 8705 reviews, and 1735 observed actors.'
+  n_issues: 5813
+  n_closed_bug_issues: 2073
+  n_issue_comments: 40711
+  n_issue_events: 49363
+  n_linked_commits: 4892
+  n_commits: 5376
+  n_pull_requests: 4727
+  n_reviews: 8705
+  n_actors_estimated: 1735
+  usable_score: 89.787
+- project_name: storm
+  project_id: <mongodb_object_id_redacted>
+  selection_reason: 'Pilot target: strong bug-fixing lifecycle coverage with 1141
+    closed bug issues, 19969 issue comments, 52754 issue events, 7071 linked commits,
+    3369 pull requests, 5449 reviews, and 1689 observed actors.'
+  n_issues: 3167
+  n_closed_bug_issues: 1141
+  n_issue_comments: 19969
+  n_issue_events: 52754
+  n_linked_commits: 7071
+  n_commits: 13097
+  n_pull_requests: 3369
+  n_reviews: 5449
+  n_actors_estimated: 1689
+  usable_score: 88.519
+- project_name: zeppelin
+  project_id: <mongodb_object_id_redacted>
+  selection_reason: 'Pilot target: strong bug-fixing lifecycle coverage with 1105
+    closed bug issues, 24019 issue comments, 29423 issue events, 2494 linked commits,
+    4011 pull requests, 5048 reviews, and 2096 observed actors.'
+  n_issues: 3557
+  n_closed_bug_issues: 1105
+  n_issue_comments: 24019
+  n_issue_events: 29423
+  n_linked_commits: 2494
+  n_commits: 4735
+  n_pull_requests: 4011
+  n_reviews: 5048
+  n_actors_estimated: 2096
+  usable_score: 85.531
+- project_name: zookeeper
+  project_id: <mongodb_object_id_redacted>
+  selection_reason: 'Pilot target: strong bug-fixing lifecycle coverage with 1235
+    closed bug issues, 33548 issue comments, 40426 issue events, 2481 linked commits,
+    1563 pull requests, 5564 reviews, and 2043 observed actors.'
+  n_issues: 3253
+  n_closed_bug_issues: 1235
+  n_issue_comments: 33548
+  n_issue_events: 40426
+  n_linked_commits: 2481
+  n_commits: 2952
+  n_pull_requests: 1563
+  n_reviews: 5564
+  n_actors_estimated: 2043
+  usable_score: 85.043
+candidate_projects:
+- project_name: kafka
+  project_id: <mongodb_object_id_redacted>
+  n_issues: 7007
+  n_closed_bug_issues: 3053
+  n_issue_comments: 36302
+  n_issue_events: 55164
+  n_linked_commits: 4650
+  n_commits: 6971
+  n_pull_requests: 9833
+  n_reviews: 48845
+  n_actors_estimated: 4312
+  usable_score: 94.367
+- project_name: maven
+  project_id: <mongodb_object_id_redacted>
+  n_issues: 13238
+  n_closed_bug_issues: 6273
+  n_issue_comments: 46582
+  n_issue_events: 140353
+  n_linked_commits: 3400
+  n_commits: 12594
+  n_pull_requests: 402
+  n_reviews: 875
+  n_actors_estimated: 3443
+  usable_score: 90.037
+- project_name: nifi
+  project_id: <mongodb_object_id_redacted>
+  n_issues: 5813
+  n_closed_bug_issues: 2073
+  n_issue_comments: 40711
+  n_issue_events: 49363
+  n_linked_commits: 4892
+  n_commits: 5376
+  n_pull_requests: 4727
+  n_reviews: 8705
+  n_actors_estimated: 1735
+  usable_score: 89.787
+- project_name: phoenix
+  project_id: <mongodb_object_id_redacted>
+  n_issues: 5603
+  n_closed_bug_issues: 2219
+  n_issue_comments: 40761
+  n_issue_events: 47217
+  n_linked_commits: 9822
+  n_commits: 11006
+  n_pull_requests: 1035
+  n_reviews: 4508
+  n_actors_estimated: 1227
+  usable_score: 89.069
+- project_name: storm
+  project_id: <mongodb_object_id_redacted>
+  n_issues: 3167
+  n_closed_bug_issues: 1141
+  n_issue_comments: 19969
+  n_issue_events: 52754
+  n_linked_commits: 7071
+  n_commits: 13097
+  n_pull_requests: 3369
+  n_reviews: 5449
+  n_actors_estimated: 1689
+  usable_score: 88.519
+- project_name: activemq
+  project_id: <mongodb_object_id_redacted>
+  n_issues: 7324
+  n_closed_bug_issues: 4368
+  n_issue_comments: 22955
+  n_issue_events: 43379
+  n_linked_commits: 6845
+  n_commits: 12522
+  n_pull_requests: 596
+  n_reviews: 169
+  n_actors_estimated: 3536
+  usable_score: 87.157
+- project_name: zeppelin
+  project_id: <mongodb_object_id_redacted>
+  n_issues: 3557
+  n_closed_bug_issues: 1105
+  n_issue_comments: 24019
+  n_issue_events: 29423
+  n_linked_commits: 2494
+  n_commits: 4735
+  n_pull_requests: 4011
+  n_reviews: 5048
+  n_actors_estimated: 2096
+  usable_score: 85.531
+- project_name: struts
+  project_id: <mongodb_object_id_redacted>
+  n_issues: 4931
+  n_closed_bug_issues: 2716
+  n_issue_comments: 18882
+  n_issue_events: 48121
+  n_linked_commits: 3413
+  n_commits: 6080
+  n_pull_requests: 465
+  n_reviews: 747
+  n_actors_estimated: 4081
+  usable_score: 85.438
+- project_name: zookeeper
+  project_id: <mongodb_object_id_redacted>
+  n_issues: 3253
+  n_closed_bug_issues: 1235
+  n_issue_comments: 33548
+  n_issue_events: 40426
+  n_linked_commits: 2481
+  n_commits: 2952
+  n_pull_requests: 1563
+  n_reviews: 5564
+  n_actors_estimated: 2043
+  usable_score: 85.043
+- project_name: kylin
+  project_id: <mongodb_object_id_redacted>
+  n_issues: 3316
+  n_closed_bug_issues: 1493
+  n_issue_comments: 9197
+  n_issue_events: 20329
+  n_linked_commits: 5674
+  n_commits: 12975
+  n_pull_requests: 1526
+  n_reviews: 1530
+  n_actors_estimated: 922
+  usable_score: 84.094

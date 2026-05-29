@@ -1,0 +1,10 @@
+candidate_pattern_label,n_issues,dominant_project,dominant_project_n,dominant_project_ratio,n_projects_with_issues,project_specific_gt_0_60
+Issue-side boundary / long-running,111,kafka,62,0.5585585585585585,5,False
+Fixer-centered,2100,nifi,1106,0.5266666666666666,5,False
+PR-driven integration,722,kafka,359,0.49722991689750695,4,False
+PR/review integration,1006,kafka,496,0.49304174950298213,5,False
+Review-heavy coordination,162,kafka,75,0.46296296296296297,5,False
+Code and PR integration,409,zookeeper,183,0.4474327628361858,4,False
+Review-integration intensive,424,kafka,183,0.43160377358490565,5,False
+No stable role / sparse PR-driven,3250,kafka,1361,0.4187692307692308,5,False
+Issue discussion and fixing,423,zookeeper,164,0.3877068557919622,5,False

@@ -1,0 +1,65 @@
+experiment:
+  name: smartshark_roles_icsme
+  random_seed: 42
+
+mongodb:
+  uri: mongodb://localhost:27018
+  database: smartshark_2_2
+  server_selection_timeout_ms: 5000
+  connect_timeout_ms: 5000
+  socket_timeout_ms: 120000
+
+paths:
+  data_dir: data
+  interim_dir: data/interim
+  processed_dir: data/processed
+  reports_dir: reports
+  artifact_dir: artifact
+
+audit:
+  output_dir: data/interim/db_audit
+  report_dir: reports/data_audit
+  exact_field_coverage: false
+  max_documents_per_collection: 5000
+  batch_size: 1000
+  count_documents_timeout_ms: 120000
+  flatten_nested_fields: true
+
+project_availability:
+  output_dir: data/interim/db_audit
+  report_dir: reports/data_audit
+  batch_size: 1000
+  count_timeout_ms: 300000
+  include_two_hop_counts: false
+  collections:
+    project: project
+    vcs_system: vcs_system
+    commit: commit
+    issue_system: issue_system
+    issue: issue
+    issue_event: event
+    pull_request_system: pull_request_system
+    pull_request: pull_request
+    pull_request_event: pull_request_event
+    mailing_list: mailing_list
+    file_action: file_action
+
+preprocessing:
+  bot_name_regex: '(?i)(\bbot\b|\[bot\]|jenkins|travis|github-actions|dependabot)'
+  low_activity_min_events: 3
+  missing_value_policy: explicit_indicators_then_median_imputation
+
+clustering:
+  random_seed: 42
+  primary_method: hdbscan
+  visualization_method: umap
+  comparison_methods:
+    - kmeans
+    - agglomerative
+  hdbscan:
+    min_cluster_size: 10
+    min_samples: 5
+  umap:
+    n_neighbors: 15
+    min_dist: 0.1
+    metric: euclidean
